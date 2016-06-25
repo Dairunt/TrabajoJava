@@ -17,6 +17,6 @@
          <input type="password" name="txtPassword" required><br>
          <input type="submit" value="Entrar">
         </form>
-        <a href="registro.jsp">Registro</a>
+        <a href="registro.htm">Registro</a>
     </body>
 </html>

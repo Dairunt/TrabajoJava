@@ -5,8 +5,11 @@
  */
 package modelo;
 
+import entidades.Solicitud;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,8 +17,14 @@ import org.springframework.stereotype.Service;
  * @author FrancoSebastian
  */
 @Service
-public class DaoPostulacion {
+public class DaoSolicitud {
+
     @PersistenceContext
     private EntityManager em;
 
+    public List<Solicitud> findAllSolicitud() throws SecurityException {
+        String sql = "Select a from Solicitud a";
+        Query q = em.createQuery(sql);
+        return q.getResultList();
+    }
 }

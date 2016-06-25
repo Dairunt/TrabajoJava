@@ -35,6 +35,6 @@ public class Login {
             }else{     
             model.addAttribute("usuarioAutenticado", usuario);
             }         
-            return "mostrarRut";
+            return "index";
     }
 }

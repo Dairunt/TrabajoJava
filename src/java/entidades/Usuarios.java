@@ -47,6 +47,16 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Usuarios.findByIdComuna", query = "SELECT u FROM Usuarios u WHERE u.idComuna = :idComuna"),
     @NamedQuery(name = "Usuarios.findByIdTipoUsuario", query = "SELECT u FROM Usuarios u WHERE u.idTipoUsuario = :idTipoUsuario")})
 public class Usuarios implements Serializable {
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "ApellidoPaterno")
+    private String apellidoPaterno;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "ApellidoMaterno")
+    private String apellidoMaterno;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -62,14 +72,6 @@ public class Usuarios implements Serializable {
     @Column(name = "FechaNacimiento")
     @Temporal(TemporalType.DATE)
     private Date fechaNacimiento;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "ApellidoPaterno")
-    private int apellidoPaterno;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "ApellidoMaterno")
-    private int apellidoMaterno;
     @Size(max = 30)
     @Column(name = "Telefono")
     private String telefono;
@@ -112,7 +114,7 @@ public class Usuarios implements Serializable {
         this.rut = rut;
     }
 
-    public Usuarios(String rut, String nombre, int apellidoPaterno, int apellidoMaterno, String password, int idTipoUsuario) {
+    public Usuarios(String rut, String nombre, String apellidoPaterno, String apellidoMaterno, String password, int idTipoUsuario) {
         this.rut = rut;
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
@@ -145,21 +147,6 @@ public class Usuarios implements Serializable {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public int getApellidoPaterno() {
-        return apellidoPaterno;
-    }
-
-    public void setApellidoPaterno(int apellidoPaterno) {
-        this.apellidoPaterno = apellidoPaterno;
-    }
-
-    public int getApellidoMaterno() {
-        return apellidoMaterno;
-    }
-
-    public void setApellidoMaterno(int apellidoMaterno) {
-        this.apellidoMaterno = apellidoMaterno;
-    }
 
     public String getTelefono() {
         return telefono;
@@ -280,6 +267,22 @@ public class Usuarios implements Serializable {
     @Override
     public String toString() {
         return "entidades.Usuarios[ rut=" + rut + " ]";
+    }
+
+    public String getApellidoPaterno() {
+        return apellidoPaterno;
+    }
+
+    public void setApellidoPaterno(String apellidoPaterno) {
+        this.apellidoPaterno = apellidoPaterno;
+    }
+
+    public String getApellidoMaterno() {
+        return apellidoMaterno;
+    }
+
+    public void setApellidoMaterno(String apellidoMaterno) {
+        this.apellidoMaterno = apellidoMaterno;
     }
     
 }

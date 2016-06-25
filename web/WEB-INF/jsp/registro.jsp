@@ -19,9 +19,9 @@
             Nombre<br>
             <input type="text" name="txtNombre" required ><br>
             Apellido Paterno<br>
-            <input type="text" name="txtApellidoPaterno" required ><br>
+            <input type="text" name="txtPaterno" required ><br>
             Apellido Materno<br>
-            <input type="text" name="txtApellidoMaterno" required ><br>
+            <input type="text" name="txtMaterno" required ><br>
             Contraseña<br>
             <input type="password" name="txtPassword" required><br>
             Repetir Contraseña:<br>

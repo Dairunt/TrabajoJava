@@ -5,8 +5,11 @@
  */
 package modelo;
 
+import entidades.Tiporenta;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,5 +20,9 @@ import org.springframework.stereotype.Service;
 public class DatoTipoRenta {
     @PersistenceContext
     private EntityManager em;
-
+      public List<Tiporenta> findAllSolicitud() throws SecurityException {
+        String sql = "Select a from Tiporenta a";
+        Query q = em.createQuery(sql);
+        return q.getResultList();
+    }
 }

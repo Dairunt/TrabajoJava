@@ -5,8 +5,11 @@
  */
 package modelo;
 
+import entidades.Estadocivil;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,5 +20,9 @@ import org.springframework.stereotype.Service;
 public class DaoEstadoCivil {
     @PersistenceContext
     private EntityManager em;
-
+       public List<Estadocivil> findAllEstadocivil() throws SecurityException {
+        String sql = "Select a from Estadocivil a";
+        Query q = em.createQuery(sql);
+        return q.getResultList();
 }
+}      
