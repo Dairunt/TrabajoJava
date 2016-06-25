@@ -12,6 +12,24 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Ver Postulaciones</h1>
+        <table style="width:100%">
+            <tr>
+                <th>Rut</th>
+                <th>Nombre</th> 
+                <th>Estado</th>
+                <th>Opciones</th>
+            </tr>
+            <c:forEach var="f" items="${requestScope.listaPostulaciones}">
+                <tr>
+                    <td>${f.rut}</td>
+                    <td>${f.nombre}</td>
+                    <td>${f.estado}</td>
+                    <td><a href="verPostulacion?id="${f.id}>Ver</a>
+                        <a href="editarPostulacion?id="${f.id}>Editar</a>
+                        <a href="eliminarPostulacion?id="${f.id}>Eliminar</a>
+                    </td>
+                </tr>
+            </c:forEach>
     </body>
 </html>
